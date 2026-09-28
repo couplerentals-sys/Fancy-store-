@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Form</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    background: #f5f5f5;
+  }
+
+  .tap-box {
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .open-btn {
+    width: 100%;
+    max-width: 400px;
+    padding: 16px;
+    border: 0;
+    border-radius: 10px;
+    background: #111;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .form-box {
+    display: none;
+    max-width: 450px;
+    margin: 20px auto;
+    background: white;
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.12);
+  }
+
+  .form-box h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+
+  input {
+    width: 100%;
+    padding: 14px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  .pay-btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 12px;
+    border: 0;
+    border-radius: 8px;
+    background: #16803c;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="tap-box" id="startBox">
+  <button class="open-btn" onclick="openForm()">Tap Here</button>
+</div>
+
+<div class="form-box" id="formBox">
+  <h2>Enter Your Details</h2>
+
+  <input type="text" id="name" placeholder="Name" required>
+  <input type="tel" id="contact" placeholder="Contact No." required>
+  <input type="text" id="address" placeholder="Full Address" required>
+  <input type="text" id="pincode" placeholder="PIN Code" maxlength="6" required>
+
+  <button class="pay-btn" onclick="payNow()">Pay Now</button>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("startBox").style.display = "none";
+  document.getElementById("formBox").style.display = "block";
+}
+
+function payNow() {
+  const name = document.getElementById("name").value.trim();
+  const contact = document.getElementById("contact").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const pincode = document.getElementById("pincode").value.trim();
+
+  if (!name || !contact || !address || !pincode) {
+    alert("Please fill all details.");
+    return;
+  }
+
+  if (!/^\d{6}$/.test(pincode)) {
+    alert("Please enter a valid 6-digit PIN Code.");
+    return;
+  }
+
+  window.location.href = "https://rzp.io/rzp/RcFDKImW";
+}
+</script>
+
+</body>
+</html>
